@@ -17,6 +17,10 @@
 					<li class="has-submenu">
 						<a href="<?php echo base_url('backend/produk') ?>"><i class="icon-pencil-ruler"></i> Data Produk</a>
 					</li>
+
+					<li class="has-submenu">
+						<a href="<?php echo base_url('backend/rekening') ?>"><i class="icon-pencil-ruler"></i> Data Rekening</a>
+					</li>
 				</ul>
 				<!-- End navigation menu -->
 			</div>
