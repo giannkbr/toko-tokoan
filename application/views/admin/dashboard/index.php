@@ -14,7 +14,7 @@
 		</div>
 	</div>
 
-	<div class="col-sm-6 col-xl-3">
+	<!-- <div class="col-sm-6 col-xl-3">
 		<div class="card">
 			<div class="card-heading p-4">
 				<div class="mini-stat-icon float-right">
@@ -54,6 +54,6 @@
 				<h3 class="mt-4">2</h3>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 </div>
