@@ -12,28 +12,28 @@ if (isset($error)) {
 				<form action="<?= base_url('backend/merk/edit/' . $merk->id_merk); ?>" method="post" enctype="multipart/form-data">
 					<div class="form-group">
 						<label class="col-md-2 control-label">Nama merk</label>
-						<div class="col-md-5">
+						<div class="col-md-12">
 							<input type="text" name="nama_merk" class="form-control" placeholder="Nama merk" value="<?php echo $merk->nama_merk ?>" required>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-md-2 control-label">Urutan</label>
-						<div class="col-md-5">
+						<div class="col-md-12">
 							<input type="number" name="urutan" class="form-control" placeholder="Urutan" value="<?php echo $merk->urutan ?>" required>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-md-2 control-label">Upload gambar produk</label>
-						<div class="col-md-5">
+						<div class="col-md-12">
 							<input type="file" name="gambar" class="form-control">
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-md-2 control-label"></label>
-						<div class="col-md-5">
+						<div class="col-md-12">
 							<button class="btn btn-success" name="submit" type="submit">
 								<i class="fa fa-save"></i> Simpan
 							</button>

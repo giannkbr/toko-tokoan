@@ -11,14 +11,11 @@
 					</li>
 
 					<li class="has-submenu">
-						<a href="#"><i class="icon-pencil-ruler"></i> Master Data <i class="mdi mdi-chevron-down mdi-drop"></i></a>
-						<ul class="submenu megamenu">
-							<li>
-								<ul>
-									<li><a href="<?php echo base_url('backend/merk') ?>">Data Merk</a></li>
-								</ul>
-							</li>
-						</ul>
+						<a href="<?php echo base_url('backend/merk') ?>"><i class="icon-pencil-ruler"></i> Data Merk</a>
+					</li>
+
+					<li class="has-submenu">
+						<a href="<?php echo base_url('backend/produk') ?>"><i class="icon-pencil-ruler"></i> Data Produk</a>
 					</li>
 				</ul>
 				<!-- End navigation menu -->
