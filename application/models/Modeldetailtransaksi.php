@@ -84,8 +84,7 @@ class Modeldetailtransaksi extends CI_Model
 	// Detail detail_transaksi 
 	public function kode_transaksi($kode_transaksi)
 	{
-		$this->db->select('detail_transaksi.*,
-							pelanggan.nama_pelanggan,
+		$this->db->select('detail_transaksi.*, pelanggan.nama_pelanggan,
 							rekening.nama_bank AS bank,
 							rekening.nomor_rekening,
 							rekening.nama_pemilik,

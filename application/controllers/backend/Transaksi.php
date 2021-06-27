@@ -14,7 +14,7 @@ class Transaksi extends CI_Controller
 		$this->load->model('Modelmerk', 'merk');
 		$this->load->model('Modeldetailtransaksi', 'detailtransaksi');
 		$this->load->model('Modeltransaksi', 'transaksi');
-		// $this->load->model('Modelkonfigurasi');
+		$this->load->model('Modelkonfigurasi', 'konfigurasi');
 	}
 
 	public function index()
@@ -33,13 +33,13 @@ class Transaksi extends CI_Controller
 	// Load data transaksi
 	public function sudah_bayar()
 	{
-		$detailtansaksi = $this->detailtransaksi->sudah();
+		$detailtransaksi = $this->detailtransaksi->sudah();
 		$data = array(
 			'title' => 'Data Transaksi Sudah Bayar',
 			'page' => 'admin/transaksi/sudahbayar',
 			'subtitle' => 'transaksi',
 			'subtitle2' => 'Index',
-			'detailtansaksi'	=> $detailtansaksi,
+			'detailtransaksi'	=> $detailtransaksi,
 		);
 		$this->load->view('templates/app', $data);
 	}
@@ -47,13 +47,13 @@ class Transaksi extends CI_Controller
 	// Load data transaksi
 	public function belum_bayar()
 	{
-		$detailtansaksi = $this->detailtransaksi->belum();
+		$detailtransaksi = $this->detailtransaksi->belum();
 		$data = array(
 			'title' => 'Data Transaksi Sudah Bayar',
 			'page' => 'admin/transaksi/sudahbayar',
 			'subtitle' => 'transaksi',
 			'subtitle2' => 'Index',
-			'detailtansaksi'	=> $detailtansaksi,
+			'detailtransaksi'	=> $detailtransaksi,
 		);
 		$this->load->view('templates/app', $data);
 	}
@@ -61,14 +61,14 @@ class Transaksi extends CI_Controller
 	// Detail
 	public function detail($kode_transaksi)
 	{
-		$detailtansaksi 	= $this->detailtransaksi->kode_transaksi($kode_transaksi);
+		$detailtransaksi 	= $this->detailtransaksi->kode_transaksi($kode_transaksi);
 		$transaksi 			= $this->transaksi->kode_transaksi($kode_transaksi);
 		$data = array(
 			'title' => 'Data Transaksi Sudah Bayar',
 			'page' => 'admin/transaksi/sudahbayar',
 			'subtitle' => 'transaksi',
 			'subtitle2' => 'Index',
-			'detailtansaksi'	=> $detailtansaksi,
+			'detailtransaksi'	=> $detailtransaksi,
 			'transaksi' => $transaksi
 		);
 		$this->load->view('templates/app', $data);
@@ -77,13 +77,13 @@ class Transaksi extends CI_Controller
 	// Konfirmasi
 	public function konfirmasi($kode_transaksi)
 	{
-		$detailtansaksi 	= $this->detailtransaksi->kode_transaksi($kode_transaksi);
+		$detailtransaksi 	= $this->detailtransaksi->kode_transaksi($kode_transaksi);
 
 		$i = $this->input;
 
 		$data = array(
 			'status_bayar'			=> 'Konfirmasi',
-			'id_detaik_tansaksi'	=> $detailtansaksi->id_detaik_tansaksi,
+			'id_detail_transaksi'	=> $detailtransaksi->id_detail_transaksi,
 		);
 		$this->detailtransaksi->edit($data);
 		$this->session->set_flashdata('message', 'swal("Berhasil!", "Konnfirmasi Pembayaran Berhasil!", "success");');
@@ -93,23 +93,7 @@ class Transaksi extends CI_Controller
 	// Cetak
 	public function cetak($kode_transaksi)
 	{
-		$detailtansaksi 	= $this->detailtransaksi->kode_transaksi($kode_transaksi);
-		$transaksi 			= $this->transaksi->kode_transaksi($kode_transaksi);
-		$site 				= $this->konfigurasi->listing();
-
-		$data = array(
-			'title' 			=> 'Detail Transaksi',
-			'detailtansaksi'	=> $detailtansaksi,
-			'transaksi'			=> $transaksi,
-			'site'				=> $site
-		);
-		$this->load->view('backend/transaksi/cetak', $data, FALSE);
-	}
-
-	// Cetak
-	public function cetak_kirim($kode_transaksi)
-	{
-		$detailtransaksi 	= $this->detailtransaksi_model->kode_transaksi($kode_transaksi);
+		$detailtransaksi 	= $this->detailtransaksi->kode_transaksi($kode_transaksi);
 		$transaksi 			= $this->transaksi->kode_transaksi($kode_transaksi);
 		$site 				= $this->konfigurasi->listing();
 
@@ -119,13 +103,29 @@ class Transaksi extends CI_Controller
 			'transaksi'			=> $transaksi,
 			'site'				=> $site
 		);
-		$this->load->view('backend/transaksi/kirim', $data, FALSE);
+		$this->load->view('admin/transaksi/cetak', $data, FALSE);
+	}
+
+	// Cetak
+	public function cetak_kirim($kode_transaksi)
+	{
+		$detailtransaksi 	= $this->detailtransaksi->kode_transaksi($kode_transaksi);
+		$transaksi 			= $this->transaksi->kode_transaksi($kode_transaksi);
+		$site 				= $this->konfigurasi->listing();
+
+		$data = array(
+			'title' 			=> 'Detail Transaksi',
+			'detailtransaksi'	=> $detailtransaksi,
+			'transaksi'			=> $transaksi,
+			'site'				=> $site
+		);
+		$this->load->view('admin/transaksi/kirim', $data, FALSE);
 	}
 
 	// Unduh pdf laporan
 	public function pdf($kode_transaksi)
 	{
-		$detailtransaksi 	= $this->detailtransaksi_model->kode_transaksi($kode_transaksi);
+		$detailtransaksi 	= $this->detailtransaksi->kode_transaksi($kode_transaksi);
 		$transaksi 			= $this->transaksi->kode_transaksi($kode_transaksi);
 		$site 				= $this->konfigurasi->listing();
 
@@ -136,7 +136,7 @@ class Transaksi extends CI_Controller
 			'site'				=> $site
 		);
 		// $this->load->view('admin/transaksi/cetak', $data, FALSE);
-		$html = $this->load->view('backend/transaksi/cetak', $data, true);
+		$html = $this->load->view('admin/transaksi/cetak', $data, true);
 		$mpdf = new \Mpdf\Mpdf();
 		// Write some HTML code:
 		$mpdf->WriteHTML($html);
@@ -148,7 +148,7 @@ class Transaksi extends CI_Controller
 	// Unduh pengiriman
 	public function kirim($kode_transaksi)
 	{
-		$detailtransaksi 	= $this->detailtransaksi_model->kode_transaksi($kode_transaksi);
+		$detailtransaksi 	= $this->detailtransaksi->kode_transaksi($kode_transaksi);
 		$transaksi 			= $this->transaksi->kode_transaksi($kode_transaksi);
 		$site 				= $this->konfigurasi->listing();
 
@@ -159,7 +159,7 @@ class Transaksi extends CI_Controller
 			'site'				=> $site
 		);
 		// $this->load->view('admin/transaksi/cetak', $data, FALSE);
-		$html = $this->load->view('backend/transaksi/kirim', $data, true);
+		$html = $this->load->view('admin/transaksi/kirim', $data, true);
 		$mpdf = new \Mpdf\Mpdf();
 		// SETTING HEADER DAN FOOTER
 		$mpdf->SetHTMLHeader('
@@ -181,22 +181,22 @@ class Transaksi extends CI_Controller
 	}
 
 	// Delete transaksi pelanggan yang tidak bayar
-	public function delete_belum($id_detailtransaksi)
+	public function delete_belum($id_detail_transaksi)
 	{
 		// Ambil data traksaksi
-		$detailtransaksi	= $this->detailtransaksi_model->detail($id_detailtransaksi);
+		$detailtransaksi	= $this->detailtransaksi->detail($id_detail_transaksi);
 		// // Proses hapus gambar bukti bayar di header transaksi
 		// unlink('./assets/upload/image/'.$detailtransaksi->bukti_bayar);
 		// unlink('./assets/upload/image/thumbs/'.$detailtransaksi->bukti_bayar);
 
-		$data = array('id_detailtransaksi'	=> $id_detailtransaksi);
-		$this->detailtransaksi_model->delete($data);
-		$this->session->set_flashdata('sukses', 'Data telah dihapus');
+		$data = array('id_detail_transaksi'	=> $id_detail_transaksi);
+		$this->detailtransaksi->delete($data);
+		$this->session->set_flashdata('message', 'swal("Berhasil!", "Data Berhasil Dihapus!", "success");');
 		redirect(base_url('backend/transaksi/belum_bayar'), 'refresh');
 	}
 
 	// Delete riwayat transaksi pelanggan yang telah diproses 
-	public function delete_tolak($id_detailtransaksi)
+	public function delete_tolak($id_detail_transaksi)
 	{
 		$data = array(
 			'status_bayar'			=> 'Belum',
@@ -206,32 +206,32 @@ class Transaksi extends CI_Controller
 			'id_rekening'			=> null,
 			'tanggal_bayar'			=> null,
 			'nama_bank'				=> null,
-			'id_detailtransaksi'	=> $id_detailtransaksi,
+			'id_detail_transaksi'	=> $id_detail_transaksi,
 		);
-		$this->detailtransaksi_model->edit($data);
+		$this->detailtransaksi->edit($data);
 
 		// Ambil data traksaksi
-		$detailtransaksi	= $this->detailtransaksi_model->detail($id_detailtransaksi);
+		$detailtransaksi	= $this->detailtransaksi->detail($id_detail_transaksi);
 		// Proses hapus gambar bukti bayar di header transaksi
 		unlink('./assets/upload/image/' . $detailtransaksi->bukti_bayar);
 		unlink('./assets/upload/image/thumbs/' . $detailtransaksi->bukti_bayar);
 
-		$this->session->set_flashdata('sukses', 'Bukti telah ditolak');
+		$this->session->set_flashdata('message', 'swal("Berhasil!", "Bukti telak ditolak!", "success");');
 		redirect(base_url('backend/transaksi/sudah_bayar'), 'refresh');
 	}
 
 	// Delete riwayat transaksi pelanggan yang telah diproses 
-	public function delete_riwayat_transaksi($id_detailtransaksi)
+	public function delete_riwayat_transaksi($id_detail_transaksi)
 	{
 		// Ambil data traksaksi
-		$detailtransaksi	= $this->detailtransaksi_model->detail($id_detailtransaksi);
+		$detailtransaksi	= $this->detailtransaksi->detail($id_detail_transaksi);
 		// Proses hapus gambar bukti bayar di header transaksi
 		unlink('./assets/upload/image/' . $detailtransaksi->bukti_bayar);
 		unlink('./assets/upload/image/thumbs/' . $detailtransaksi->bukti_bayar);
 
 		$data = array('id_detail_transaksi'	=> $id_detail_transaksi);
-		$this->detailtransaksi_model->delete($data);
-		$this->session->set_flashdata('sukses', 'Data telah dihapus');
+		$this->detailtransaksi->delete($data);
+		$this->session->set_flashdata('message', 'swal("Berhasil!", "Data Berhasil Dihapus!", "success");');
 		redirect(base_url('backend/transaksi'), 'refresh');
 	}
 }
