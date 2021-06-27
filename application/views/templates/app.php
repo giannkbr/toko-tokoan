@@ -39,7 +39,7 @@
 					<div>
 						<a href="index.html" class="logo">
 							<span class="logo-light">
-								<i class="mdi mdi-camera-control"></i> E - Absensi
+								<i class="mdi mdi-camera-control"></i> E - Commerce
 							</span>
 						</a>
 					</div>

@@ -22,10 +22,6 @@
 					</li>
 
 					<li class="has-submenu">
-						<a href="<?php echo base_url('backend/rekening') ?>"><i class="icon-pencil-ruler"></i> Data Rekening</a>
-					</li>
-
-					<li class="has-submenu">
 						<a href="#"><i class="icon-pencil-ruler"></i> Transaksi <i class="mdi mdi-chevron-down mdi-drop"></i></a>
 						<ul class="submenu megamenu">
 							<li>
@@ -36,6 +32,12 @@
 								</ul>
 							</li>
 						</ul>
+					</li>
+					<li class="has-submenu">
+						<a href="<?php echo base_url('backend/rekening') ?>"><i class="icon-pencil-ruler"></i> Data Rekening</a>
+					</li>
+					<li class="has-submenu">
+						<a href="<?php echo base_url('backend/konfigurasi') ?>"><i class="icon-pencil-ruler"></i> Konfigurasi Website</a>
 					</li>
 				</ul>
 				<!-- End navigation menu -->

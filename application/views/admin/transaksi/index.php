@@ -13,8 +13,8 @@
 							<th width="25%">Nama Pelanggan</th>
 							<th>Kode</th>
 							<th>Tanggal</th>
-							<th>Jml Total</th>
-							<th>Jml Item</th>
+							<th>Jumlah Total</th>
+							<th>Jumlah Item</th>
 							<th>Status</th>
 							<th>Action</th>
 						</tr>
