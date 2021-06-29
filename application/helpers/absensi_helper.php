@@ -34,4 +34,6 @@ function is_admin()
 	if ($CI->session->userdata('role_id') != 1) {
 		redirect('errors');
 	}
+
+	
 }
