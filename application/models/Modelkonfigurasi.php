@@ -41,20 +41,20 @@ class Modelkonfigurasi extends CI_Model
 		return $query->result();
 	}
 
-	// Listing all detailtransaksi Belum Bayar
+	// Listing all detail_transaksi Belum Bayar
 	public function nav_header_belum($id_pelanggan)
 	{
-		$this->db->select('detailtransaksi.*,
+		$this->db->select('detail_transaksi.*,
 							pelanggan.nama_pelanggan,
 							SUM(transaksi.jumlah) AS total_item');
-		$this->db->from('detailtransaksi');
+		$this->db->from('detail_transaksi');
 		// Join
-		$this->db->join('transaksi', 'transaksi.kode_transaksi = detailtransaksi.kode_transaksi', 'left');
-		$this->db->join('pelanggan', 'pelanggan.id_pelanggan = detailtransaksi.id_pelanggan', 'left');
+		$this->db->join('transaksi', 'transaksi.kode_transaksi = detail_transaksi.kode_transaksi', 'left');
+		$this->db->join('pelanggan', 'pelanggan.id_pelanggan = detail_transaksi.id_pelanggan', 'left');
 		// End Join
-		$this->db->group_by('detailtransaksi.id_detail_transaksi');
-		$this->db->where('detailtransaksi.status_bayar', 'Belum');
-		$this->db->where('detailtransaksi.id_pelanggan', $id_pelanggan);
+		$this->db->group_by('detail_transaksi.id_detail_transaksi');
+		$this->db->where('detail_transaksi.status_bayar', 'Belum');
+		$this->db->where('detail_transaksi.id_pelanggan', $id_pelanggan);
 		$this->db->order_by('id_detail_transaksi', 'desc');
 		$query = $this->db->get();
 		return $query->result();

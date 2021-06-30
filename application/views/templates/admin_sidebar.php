@@ -37,7 +37,18 @@
 						<a href="<?php echo base_url('backend/rekening') ?>"><i class="icon-pencil-ruler"></i> Data Rekening</a>
 					</li>
 					<li class="has-submenu">
-						<a href="<?php echo base_url('backend/konfigurasi') ?>"><i class="icon-pencil-ruler"></i> Konfigurasi Website</a>
+						<a href="#"><i class="icon-pencil-ruler"></i> Konfigurasi Website <i class="mdi mdi-chevron-down mdi-drop"></i></a>
+						<ul class="submenu megamenu">
+							<li>
+								<ul>
+									<li>
+									<a href="<?php echo base_url('backend/konfigurasi') ?>">Konfigurasi Website</a>
+									</li>
+									<li><a href="<?php echo base_url('backend/konfigurasi/logo') ?>">Konfigurasi Logo</a></li>
+									<li><a href="<?php echo base_url('backend/konfigurasi/icon') ?>">Konfigurasi Icon</a></li>
+								</ul>
+							</li>
+						</ul>
 					</li>
 				</ul>
 				<!-- End navigation menu -->

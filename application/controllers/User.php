@@ -9,10 +9,8 @@ class User extends CI_Controller
 	{
 		parent::__construct();
 		// is_login();
-		$this->load->model('user_model', 'user');
+		$this->load->model('Modeluser', 'user');
 	}
-
-
 
 	public function index()
 	{
