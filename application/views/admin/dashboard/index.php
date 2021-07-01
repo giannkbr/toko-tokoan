@@ -1,6 +1,6 @@
 <div class="row">
 
-	<div class="col-sm-6 col-xl-3">
+<!-- 	<div class="col-sm-6 col-xl-3">
 		<div class="card">
 			<div class="card-heading p-4">
 				<div class="mini-stat-icon float-right">
@@ -13,7 +13,7 @@
 			</div>
 		</div>
 	</div>
-
+ -->
 	<!-- <div class="col-sm-6 col-xl-3">
 		<div class="card">
 			<div class="card-heading p-4">

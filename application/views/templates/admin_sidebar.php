@@ -7,7 +7,7 @@
 				<ul class="navigation-menu">
 
 					<li class="has-submenu">
-						<a href="/"><i class="icon-accelerator"></i> Dashboard</a>
+						<a href="<?= base_url('Admin') ?>"><i class="icon-accelerator"></i> Dashboard</a>
 					</li>
 					<li class="has-submenu">
 						<a href="#"><i class="icon-pencil-ruler"></i> Data Produk <i class="mdi mdi-chevron-down mdi-drop"></i></a>
