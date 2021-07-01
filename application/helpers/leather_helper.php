@@ -31,9 +31,10 @@ function is_admin()
 {
 	$CI = &get_instance();
 
-	if ($CI->session->userdata('role_id') != 1) {
-		redirect('errors');
-	}
+	if ($CI->session->userdata('username')== "") {
+			$this->CI->session->set_flashdata('warning', 'Anda belum login');
+			redirect(base_url('login'),'refresh');
+		}
 
 	
 }

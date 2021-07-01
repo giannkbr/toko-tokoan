@@ -35,9 +35,9 @@
 				<form action="<?= base_url('auth') ?>" method="post" class="user">
 					<div class="form-group">
 						<div class="col-12">
-							<label>Email</label>
-							<input class="form-control" name="email" type="text" required="" placeholder="Email">
-							<?= form_error('email', '<small class="text-danger ml-3 mt-1">', '</small>'); ?>
+							<label>Username</label>
+							<input class="form-control" name="username" type="text" required="" placeholder="username">
+							<?= form_error('username', '<small class="text-danger ml-3 mt-1">', '</small>'); ?>
 						</div>
 					</div>
 

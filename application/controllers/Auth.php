@@ -12,9 +12,8 @@ class Auth extends CI_Controller
 
 	public function index()
 	{
-		$this->form_validation->set_rules('email', 'Email', 'required|valid_email', [
-			'required'		=> 'Email tidak boleh kosong',
-			'valid_email'	=> 'Email tidak valid'
+		$this->form_validation->set_rules('username', 'Username', 'required', [
+			'required'		=> 'Username tidak boleh kosong',
 		]);
 		$this->form_validation->set_rules('password', 'Password', 'required', [
 			'required'		=> 'Password tidak boleh kosong'
