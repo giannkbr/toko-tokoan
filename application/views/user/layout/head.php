@@ -31,6 +31,7 @@ $site 	= $this->Modelkonfigurasi->listing();
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/template/vendor/perfect-scrollbar/perfect-scrollbar.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/template/css/util.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/template/css/main.css">
+	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"> 
 <style type="text/css" media="screen">
 	ul.pagination
 	{
@@ -60,4 +61,4 @@ $site 	= $this->Modelkonfigurasi->listing();
 	}
 </style>
 </head>
-<body class="animsition" style="font-family: 'Quicksand';">
+<body style="font-family: 'Quicksand', sans-serif;" class="animsition">

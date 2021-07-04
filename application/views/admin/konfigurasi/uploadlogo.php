@@ -1,7 +1,7 @@
 <?php
 // error upload
 if (isset($error)) {
-	echo '<p class="alert alert-warning">';
+	echo '<p class="class="alert alert-primary" role="alert>';
 	echo $error;
 	echo '</p>';
 }

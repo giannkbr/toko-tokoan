@@ -17,13 +17,13 @@ class Modelproduk extends CI_Model
 	{
 		$this->db->select('produk.*,
 							users.nama,
-							merk.nama_merk,
-							merk.slug_merk,
+							kategori.nama_kategori,
+							kategori.slug_kategori,
 							COUNT(gambar.id_gambar) AS total_gambar'); // Ngitung total gambar
 		$this->db->from('produk');
 		// JOIN
 		$this->db->join('users', 'users.id_users = produk.id_users', 'left');
-		$this->db->join('merk', 'merk.id_merk = produk.id_merk', 'left');
+		$this->db->join('kategori', 'kategori.id_kategori = produk.id_kategori', 'left');
 		$this->db->join('gambar', 'gambar.id_produk = produk.id_produk', 'left'); // Ngitung total gambar
 		// END JOIN
 		$this->db->group_by('produk.id_produk'); // Ngitung total gambar
@@ -37,13 +37,13 @@ class Modelproduk extends CI_Model
 	{
 		$this->db->select('produk.*,
 							users.nama,
-							merk.nama_merk,
-							merk.slug_merk,
+							kategori.nama_kategori,
+							kategori.slug_kategori,
 							COUNT(gambar.id_gambar) AS total_gambar'); // Ngitung total gambar
 		$this->db->from('produk');
 		// JOIN
 		$this->db->join('users', 'users.id_users = produk.id_users', 'left');
-		$this->db->join('merk', 'merk.id_merk = produk.id_merk', 'left');
+		$this->db->join('kategori', 'kategori.id_kategori = produk.id_kategori', 'left');
 		$this->db->join('gambar', 'gambar.id_produk = produk.id_produk', 'left'); // Ngitung total gambar
 		// END JOIN
 		$this->db->where('produk.status_produk', 'Publish');
@@ -59,13 +59,13 @@ class Modelproduk extends CI_Model
 	{
 		$this->db->select('produk.*,
 							users.nama,
-							merk.nama_merk,
-							merk.slug_merk,
+							kategori.nama_kategori,
+							kategori.slug_kategori,
 							COUNT(gambar.id_gambar) AS total_gambar'); // Ngitung total gambar
 		$this->db->from('produk');
 		// JOIN
 		$this->db->join('users', 'users.id_users = produk.id_users', 'left');
-		$this->db->join('merk', 'merk.id_merk = produk.id_merk', 'left');
+		$this->db->join('kategori', 'kategori.id_kategori = produk.id_kategori', 'left');
 		$this->db->join('gambar', 'gambar.id_produk = produk.id_produk', 'left'); // Ngitung total gambar
 		// END JOIN
 		$this->db->where('produk.status_produk', 'Publish');
@@ -81,13 +81,13 @@ class Modelproduk extends CI_Model
 	{
 		$this->db->select('produk.*,
 							users.nama,
-							merk.nama_merk,
-							merk.slug_merk,
+							kategori.nama_kategori,
+							kategori.slug_kategori,
 							COUNT(gambar.id_gambar) AS total_gambar'); // Ngitung total gambar
 		$this->db->from('produk');
 		// JOIN
 		$this->db->join('users', 'users.id_users = produk.id_users', 'left');
-		$this->db->join('merk', 'merk.id_merk = produk.id_merk', 'left');
+		$this->db->join('kategori', 'kategori.id_kategori = produk.id_kategori', 'left');
 		$this->db->join('gambar', 'gambar.id_produk = produk.id_produk', 'left'); // Ngitung total gambar
 		// END JOIN
 		$this->db->where('produk.status_produk', 'Publish');
@@ -108,22 +108,22 @@ class Modelproduk extends CI_Model
 		return $query->row();
 	}
 
-	// Listing merk Produk 
-	public function merk($id_merk, $limit, $start)
+	// Listing kategori Produk 
+	public function kategori($id_kategori, $limit, $start)
 	{
 		$this->db->select('produk.*,
 							users.nama,
-							merk.nama_merk,
-							merk.slug_merk,
+							kategori.nama_kategori,
+							kategori.slug_kategori,
 							COUNT(gambar.id_gambar) AS total_gambar'); // Ngitung total gambar
 		$this->db->from('produk');
 		// JOIN
 		$this->db->join('users', 'users.id_users = produk.id_users', 'left');
-		$this->db->join('merk', 'merk.id_merk = produk.id_merk', 'left');
+		$this->db->join('kategori', 'kategori.id_kategori = produk.id_kategori', 'left');
 		$this->db->join('gambar', 'gambar.id_produk = produk.id_produk', 'left'); // Ngitung total gambar
 		// END JOIN
 		$this->db->where('produk.status_produk', 'Publish');
-		$this->db->where('produk.id_merk', $id_merk);
+		$this->db->where('produk.id_kategori', $id_kategori);
 		$this->db->group_by('produk.id_produk'); // Ngitung total gambar
 		$this->db->order_by('id_produk', 'desc');
 		$this->db->limit($limit, $start);
@@ -131,32 +131,32 @@ class Modelproduk extends CI_Model
 		return $query->result();
 	}
 
-	// Total merk produk
-	public function total_merk($id_merk)
+	// Total kategori produk
+	public function total_kategori($id_kategori)
 	{
 		$this->db->select('COUNT(*) AS total');
 		$this->db->from('produk');
 		$this->db->where('status_produk', 'Publish');
-		$this->db->where('id_merk', $id_merk);
+		$this->db->where('id_kategori', $id_kategori);
 		$query	= $this->db->get();
 		return $query->row();
 	}
 
-	// Listing merk
-	public function listing_merk()
+	// Listing kategori
+	public function listing_kategori()
 	{
 		$this->db->select('produk.*,
 							users.nama,
-							merk.nama_merk,
-							merk.slug_merk,
+							kategori.nama_kategori,
+							kategori.slug_kategori,
 							COUNT(gambar.id_gambar) AS total_gambar'); // Ngitung total gambar
 		$this->db->from('produk');
 		// JOIN
 		$this->db->join('users', 'users.id_users = produk.id_users', 'left');
-		$this->db->join('merk', 'merk.id_merk = produk.id_merk', 'left');
+		$this->db->join('kategori', 'kategori.id_kategori = produk.id_kategori', 'left');
 		$this->db->join('gambar', 'gambar.id_produk = produk.id_produk', 'left'); // Ngitung total gambar
 		// END JOIN
-		$this->db->group_by('produk.id_merk'); // Ngitung total gambar
+		$this->db->group_by('produk.id_kategori'); // Ngitung total gambar
 		$this->db->order_by('id_produk', 'desc');
 		$query = $this->db->get();
 		return $query->result();

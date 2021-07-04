@@ -9,9 +9,9 @@ $nav_header_belum	= $this->Modelkonfigurasi->nav_header_belum($this->session->us
 				<nav class="limiter-menu-desktop container">
 					
 					<!-- Logo desktop -->		
-					<a href="<?php echo base_url() ?>" class="logo">
+					<!-- <a href="<?php echo base_url() ?>" class="logo">
 						<img src="<?php echo base_url('assets/upload/image/'.$site->logo) ?>" alt="<?php echo $site->namaweb ?> | <?php echo $site->tagline ?>">
-					</a>
+					</a> -->
 
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
@@ -24,11 +24,11 @@ $nav_header_belum	= $this->Modelkonfigurasi->nav_header_belum($this->session->us
 
 							<!-- Menu Produk -->
 							<li>
-								<a href="<?php echo base_url('merk') ?>">Merk</a>
+								<a href="<?php echo base_url('kategori') ?>">Kategori</a>
 								<ul class="sub-menu">
 									<?php foreach ($nav_produk as $nav_produk) { ?>
-									<li><a href="<?php echo base_url('produk/merk/'.$nav_produk->slug_merk) ?>">
-										<?php echo $nav_produk->nama_merk ?></a></li>
+									<li><a href="<?php echo base_url('produk/kategori/'.$nav_produk->slug_kategori) ?>">
+										<?php echo $nav_produk->nama_kategori ?></a></li>
 									<?php } ?>
 								</ul>
 							</li>	
@@ -236,7 +236,7 @@ $nav_header_belum	= $this->Modelkonfigurasi->nav_header_belum($this->session->us
 						</a>
 						<?php }else { ?>
 
-						<a href="<?php echo base_url('merk') ?>" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+						<a href="<?php echo base_url('kategori') ?>" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
 							Belanja Sekarang
 						</a>
 						<?php } ?>

@@ -11,8 +11,8 @@ class Rekening extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('Modelrekening', 'rekening');
-		is_login();
-		is_admin();
+		// is_login();
+		// is_admin();
 	}
 
 	public function index()

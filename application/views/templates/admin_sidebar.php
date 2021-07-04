@@ -42,7 +42,7 @@
 							<li>
 								<ul>
 									<li>
-									<a href="<?php echo base_url('backend/konfigurasi') ?>">Konfigurasi Website</a>
+										<a href="<?php echo base_url('backend/konfigurasi') ?>">Konfigurasi Website</a>
 									</li>
 									<li><a href="<?php echo base_url('backend/konfigurasi/logo') ?>">Konfigurasi Logo</a></li>
 									<li><a href="<?php echo base_url('backend/konfigurasi/icon') ?>">Konfigurasi Icon</a></li>

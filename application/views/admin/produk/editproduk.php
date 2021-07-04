@@ -25,15 +25,15 @@ if (isset($error)) {
 					</div>
 
 					<div class="form-group">
-						<label class="col-md-2 control-label">merk produk</label>
+						<label class="col-md-2 control-label">kategori produk</label>
 						<div class="col-md-12">
-							<select name="id_merk" class="form-control">
-								<!-- looping untuk nama-nama merk -->
-								<?php foreach ($merk as $merk) { ?>
-									<option value="<?php echo $merk->id_merk ?>" <?php if ($produk->id_merk == $merk->id_merk) {
+							<select name="id_kategori" class="form-control">
+								<!-- looping untuk nama-nama kategori -->
+								<?php foreach ($kategori as $kategori) { ?>
+									<option value="<?php echo $kategori->id_kategori ?>" <?php if ($produk->id_kategori == $kategori->id_kategori) {
 																						echo "selected";
 																					} ?>>
-										<?php echo $merk->nama_merk ?>
+										<?php echo $kategori->nama_kategori ?>
 									</option>
 								<?php } ?>
 								<!-- end looping -->

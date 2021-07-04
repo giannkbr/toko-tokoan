@@ -25,18 +25,18 @@ class Modelkonfigurasi extends CI_Model
 		$this->db->update('konfigurasi', $data);
 	}
 
-	// Load menu merk produk
+	// Load menu kategori produk
 	public function nav_produk()
 	{
 		$this->db->select('produk.*,
-							merk.nama_merk,
-							merk.slug_merk');
+							kategori.nama_kategori,
+							kategori.slug_kategori');
 		$this->db->from('produk');
 		// JOIN
-		$this->db->join('merk', 'merk.id_merk = produk.id_merk', 'left');
+		$this->db->join('kategori', 'kategori.id_kategori = produk.id_kategori', 'left');
 		// END JOIN
-		$this->db->group_by('produk.id_merk'); // Ngitung total gambar
-		$this->db->order_by('merk.urutan', 'ASC');
+		$this->db->group_by('produk.id_kategori'); // Ngitung total gambar
+		$this->db->order_by('kategori.urutan', 'ASC');
 		$query = $this->db->get();
 		return $query->result();
 	}

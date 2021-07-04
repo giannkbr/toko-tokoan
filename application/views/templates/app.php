@@ -64,7 +64,7 @@
 									</a>
 									<div class="dropdown-menu dropdown-menu-right profile-dropdown ">
 										<!-- item-->
-										<a href="#" class="dropdown-item">Hai, <?= $this->session->userdata('nama') ?></a>
+										<a href="#" class="dropdown-item">Hai, <?= $this->session->userdata('username') ?></a>
 										<a class="dropdown-item" href="#"><i class="mdi mdi-account-circle"></i>
 											Profile</a>
 										<a class="dropdown-item d-block" href="<?php base_url('auth/change_password') ?>"><span class="badge badge-success float-right">11</span><i class="mdi mdi-settings"></i> Settings</a>
@@ -102,13 +102,7 @@
 			<!-- end topbar-main -->
 
 			<!-- MENU Start -->
-			<?php
-			if ($this->session->userdata('role_id') == 1) {
-				$this->load->view('templates/admin_sidebar');
-			} else {
-				$this->load->view('templates/user_sidebar');
-			}
-			?>
+			<?php $this->load->view('templates/admin_sidebar'); ?>
 			<!-- end navbar-custom -->
 		</header>
 		<!-- End Navigation Bar-->

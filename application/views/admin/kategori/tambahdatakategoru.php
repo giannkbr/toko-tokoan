@@ -9,11 +9,11 @@ if (isset($error)) {
 	<div class="col-12">
 		<div class="card m-b-30">
 			<div class="card-body">
-				<form action="<?= base_url('backend/merk/tambah'); ?>" method="post" enctype="multipart/form-data">
+				<form action="<?= base_url('backend/kategori/tambah'); ?>" method="post" enctype="multipart/form-data">
 					<div class="form-group">
-						<label class="col-md-2 control-label">Nama merk</label>
+						<label class="col-md-2 control-label">Nama kategori</label>
 						<div class="col-md-12">
-							<input type="text" name="nama_merk" class="form-control" placeholder="Nama merk" value="<?php echo set_value('nama_merk') ?>" required>
+							<input type="text" name="nama_kategori" class="form-control" placeholder="Nama kategori" value="<?php echo set_value('nama_kategori') ?>" required>
 						</div>
 					</div>
 
@@ -25,7 +25,7 @@ if (isset($error)) {
 					</div>
 
 					<div class="form-group">
-						<label class="col-md-2 control-label">Upload gambar merk</label>
+						<label class="col-md-2 control-label">Upload gambar kategori</label>
 						<div class="col-md-12">
 							<input type="file" name="gambar" class="form-control" required="required">
 						</div>

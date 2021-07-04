@@ -8,10 +8,8 @@ class Transaksi extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		is_login();
-		is_admin();
 		$this->load->model('Modelproduk', 'produk');
-		$this->load->model('Modelmerk', 'merk');
+		$this->load->model('Modelkategori', 'kategori');
 		$this->load->model('Modeldetailtransaksi', 'detailtransaksi');
 		$this->load->model('Modeltransaksi', 'transaksi');
 		$this->load->model('Modelkonfigurasi', 'konfigurasi');
@@ -49,8 +47,8 @@ class Transaksi extends CI_Controller
 	{
 		$detailtransaksi = $this->detailtransaksi->belum();
 		$data = array(
-			'title' => 'Data Transaksi Sudah Bayar',
-			'page' => 'admin/transaksi/sudahbayar',
+			'title' => 'Data Transaksi Belum Bayar',
+			'page' => 'admin/transaksi/belumbayar',
 			'subtitle' => 'transaksi',
 			'subtitle2' => 'Index',
 			'detailtransaksi'	=> $detailtransaksi,
@@ -65,7 +63,7 @@ class Transaksi extends CI_Controller
 		$transaksi 			= $this->transaksi->kode_transaksi($kode_transaksi);
 		$data = array(
 			'title' => 'Data Transaksi Sudah Bayar',
-			'page' => 'admin/transaksi/sudahbayar',
+			'page' => 'admin/transaksi/detail',
 			'subtitle' => 'transaksi',
 			'subtitle2' => 'Index',
 			'detailtransaksi'	=> $detailtransaksi,

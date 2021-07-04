@@ -9,18 +9,18 @@ if (isset($error)) {
 	<div class="col-12">
 		<div class="card m-b-30">
 			<div class="card-body">
-				<form action="<?= base_url('backend/merk/edit/' . $merk->id_merk); ?>" method="post" enctype="multipart/form-data">
+				<form action="<?= base_url('backend/kategori/edit/' . $kategori->id_kategori); ?>" method="post" enctype="multipart/form-data">
 					<div class="form-group">
-						<label class="col-md-2 control-label">Nama merk</label>
+						<label class="col-md-2 control-label">Nama kategori</label>
 						<div class="col-md-12">
-							<input type="text" name="nama_merk" class="form-control" placeholder="Nama merk" value="<?php echo $merk->nama_merk ?>" required>
+							<input type="text" name="nama_kategori" class="form-control" placeholder="Nama kategori" value="<?php echo $kategori->nama_kategori ?>" required>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-md-2 control-label">Urutan</label>
 						<div class="col-md-12">
-							<input type="number" name="urutan" class="form-control" placeholder="Urutan" value="<?php echo $merk->urutan ?>" required>
+							<input type="number" name="urutan" class="form-control" placeholder="Urutan" value="<?php echo $kategori->urutan ?>" required>
 						</div>
 					</div>
 

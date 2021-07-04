@@ -12,7 +12,7 @@
 							<th>No</th>
 							<th>Gambar</th>
 							<th>Nama</th>
-							<th>Merk</th>
+							<th>Kategori</th>
 							<th>Stok</th>
 							<th>Harga</th>
 							<th>Status</th>
@@ -28,7 +28,7 @@
 									<img src="<?php echo base_url('assets/upload/image/thumbs/' . $produk->gambar) ?>" class="img img-responsive img-thumbnail" width="60">
 								</td>
 								<td><?php echo $produk->nama_produk ?></td>
-								<td><?php echo $produk->nama_merk ?></td>
+								<td><?php echo $produk->nama_kategori ?></td>
 								<td><?php echo $produk->stok ?></td>
 								<td><?php echo number_format($produk->harga, '0', ',', '.') ?></td>
 								<td><?php echo $produk->status_produk ?></td>

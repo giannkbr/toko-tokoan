@@ -8,10 +8,8 @@ class Produk extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		is_login();
-		is_admin();
 		$this->load->model('Modelproduk', 'produk');
-		$this->load->model('Modelmerk', 'merk');
+		$this->load->model('Modelkategori', 'kategori');
 	}
 
 	public function index()
@@ -145,8 +143,8 @@ class Produk extends CI_Controller
 	// Tambah produk
 	public function tambah()
 	{
-		// Ambil data merk
-		$merk = $this->merk->listing();
+		// Ambil data kategori
+		$kategori = $this->kategori->listing();
 
 		// Validasi input
 		$valid = $this->form_validation;
@@ -185,7 +183,7 @@ class Produk extends CI_Controller
 					'page' => 'admin/produk/tambahproduk',
 					'subtitle' => 'Produk',
 					'subtitle2' => 'Tambah Produk',
-					'merk'	=>	$merk,
+					'kategori'	=>	$kategori,
 					'error'		=>	$this->upload->display_errors(),
 				];
 
@@ -216,7 +214,7 @@ class Produk extends CI_Controller
 
 				$data = array(
 					'id_users'		=> $this->session->userdata('id_users'),
-					'id_merk'	=> $i->post('id_merk'),
+					'id_kategori'	=> $i->post('id_kategori'),
 					'kode_produk'	=> $i->post('kode_produk'),
 					'nama_produk'	=> $i->post('nama_produk'),
 					'slug_produk'	=> $slug_produk,
@@ -241,7 +239,7 @@ class Produk extends CI_Controller
 			'page' => 'admin/produk/tambahproduk',
 			'subtitle' => 'Produk',
 			'subtitle2' => 'Tambah Produk',
-			'merk'	=>	$merk,
+			'kategori'	=>	$kategori,
 		];
 
 		$this->load->view('templates/app', $data);
@@ -253,8 +251,8 @@ class Produk extends CI_Controller
 	{
 		// Ambil data produk yang akan diedit
 		$produk = $this->produk->detail($id_produk);
-		// Ambil data merk
-		$merk = $this->merk->listing();
+		// Ambil data kategori
+		$kategori = $this->kategori->listing();
 		// Validasi input
 		$valid = $this->form_validation;
 
@@ -291,7 +289,7 @@ class Produk extends CI_Controller
 						'page' => 'admin/produk/editproduk',
 						'subtitle' => 'Produk',
 						'subtitle2' => 'Tambah Produk',
-						'merk'	=>	$merk,
+						'kategori'	=>	$kategori,
 						'produk'	=>	$produk,
 						'error'		=>	$this->upload->display_errors(),
 					];
@@ -324,7 +322,7 @@ class Produk extends CI_Controller
 					$data = array(
 						'id_produk'		=> $id_produk,
 						'id_users'		=> $this->session->userdata('id_users'),
-						'id_merk'	=> $i->post('id_merk'),
+						'id_kategori'	=> $i->post('id_kategori'),
 						'kode_produk'	=> $i->post('kode_produk'),
 						'nama_produk'	=> $i->post('nama_produk'),
 						'slug_produk'	=> $slug_produk,
@@ -349,7 +347,7 @@ class Produk extends CI_Controller
 				$data = array(
 					'id_produk'		=> $id_produk,
 					'id_users'		=> $this->session->userdata('id_users'),
-					'id_merk'	=> $i->post('id_merk'),
+					'id_kategori'	=> $i->post('id_kategori'),
 					'kode_produk'	=> $i->post('kode_produk'),
 					'nama_produk'	=> $i->post('nama_produk'),
 					'slug_produk'	=> $slug_produk,
@@ -374,7 +372,7 @@ class Produk extends CI_Controller
 			'page' => 'admin/produk/editproduk',
 			'subtitle' => 'Produk',
 			'subtitle2' => 'Tambah Produk',
-			'merk'	=>	$merk,
+			'kategori'	=>	$kategori,
 			'produk'	=>	$produk,
 		];
 

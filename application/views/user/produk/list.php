@@ -4,9 +4,9 @@
 		<div class="container">
 			<div class="flex-w flex-sb-m p-b-10">
 				<div class="flex-w flex-l-m filter-tope-group m-tb-10">
-					<?php foreach ($listing_merk as $listing_merk) { ?>
-					<a href="<?php echo base_url('produk/merk/'.$listing_merk->slug_merk) ?>" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter="*">
-						<?php echo $listing_merk->nama_merk; ?>
+					<?php foreach ($listing_kategori as $listing_kategori) { ?>
+					<a href="<?php echo base_url('produk/kategori/'.$listing_kategori->slug_kategori) ?>" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter="*">
+						<?php echo $listing_kategori->nama_kategori; ?>
 					</a>
 					<?php } ?>
 				</div>

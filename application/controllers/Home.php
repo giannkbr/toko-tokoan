@@ -8,7 +8,7 @@ class Home extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Modelproduk');
-		$this->load->model('Modelmerk');
+		$this->load->model('Modelkategori');
 		$this->load->model('Modelkonfigurasi');
 
 	}
@@ -17,10 +17,10 @@ class Home extends CI_Controller {
 	public function index()
 	{
 		$site = $this->Modelkonfigurasi->listing();
-		$merk = $this->Modelkonfigurasi->nav_produk();
+		$kategori = $this->Modelkonfigurasi->nav_produk();
 		$produk = $this->Modelproduk->home();
-		// Ambil Data merk (kotak merk yg di dashboard)
-		$list_merk 	= $this->Modelmerk->listing();
+		// Ambil Data kategori (kotak kategori yg di dashboard)
+		$list_kategori 	= $this->Modelkategori->listing();
 		// Ambil data keranjang
 		// $keranjang	= $this->cart->contents();
 
@@ -28,9 +28,9 @@ class Home extends CI_Controller {
 						'keywords' 	=> $site->keywords,
 						'deskripsi' => $site->deskripsi,
 						'site'		=> $site,
-						'merk'	=> $merk,
+						'kategori'	=> $kategori,
 						'produk'	=> $produk,
-						'list_merk'	=> $list_merk,
+						'list_kategori'	=> $list_kategori,
 						// 'keranjang'	=> $keranjang,
 						'page' 		=> 'user/home/list'
 					);

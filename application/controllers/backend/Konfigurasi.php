@@ -11,8 +11,6 @@ class Konfigurasi extends CI_Controller
 		parent::__construct();
 		$this->load->model('Modelkonfigurasi', 'konfigurasi');
 		$this->load->library('upload');
-		is_login();
-		is_admin();
 	}
 
 	public function index()
@@ -69,7 +67,7 @@ class Konfigurasi extends CI_Controller
 	// Konfigurasi Logo Website
 	public function logo()
 	{
-		$konfigurasi = $this->konfigurasi ->listing();
+		$konfigurasi = $this->konfigurasi->listing();
 
 		// Validasi input
 		$valid = $this->form_validation;
@@ -93,7 +91,7 @@ class Konfigurasi extends CI_Controller
 		// End validasi
 		
 			$data = [
-				'title' => 'Data konfigurasi',
+				'title' => 'Data Konfigurasi Logo Website',
 				'page' => 'admin/konfigurasi/uploadlogo',
 				'subtitle' => 'konfigurasi',
 				'subtitle2' => 'Index',
@@ -130,7 +128,7 @@ class Konfigurasi extends CI_Controller
 							// Disimpan nama file gambar
 							'logo'				=> $upload_gambar['upload_data']['file_name'],
 						);
-			$this->konfigurasi ->edit($data);
+			$this->konfigurasi->edit($data);
 			$this->session->set_flashdata('message', 'swal("Berhasil!", "Data Logo Berhasil Diedit!", "success");');
 			redirect(base_url('backend/konfigurasi/uploadlogo'), 'refresh');
 			}
@@ -141,20 +139,19 @@ class Konfigurasi extends CI_Controller
 			$data = array(	'id_konfigurasi'	=> $konfigurasi->id_konfigurasi,
 							'namaweb'			=> $i->post('namaweb'),
 							// Disimpan nama file gambar
-							//'logo'			=> $upload_gambar['upload_data']['file_name']
+							//]'logo'			=> $upload_gambar['upload_data']['file_name']
 						);
-			$this->konfigurasi ->edit($data);
+			$this->konfigurasi->edit($data);
 			$this->session->set_flashdata('message', 'swal("Berhasil!", "Data Logo Berhasil Diedit!", "success");');
 			redirect(base_url('backend/konfigurasi/uploadlogo'), 'refresh');
 		}}
 		// End masuk database
 			$data = [
-				'title' => 'Data konfigurasi',
+				'title' => 'Data Konfigurasi Logo Website',
 				'page' => 'admin/konfigurasi/uploadlogo',
 				'subtitle' => 'konfigurasi',
 				'subtitle2' => 'Index',
 				'konfigurasi' => $konfigurasi,
-				'error'	=>	$this->upload->display_errors(),
 			];
 
 			$this->load->view('templates/app', $data);
@@ -187,7 +184,7 @@ class Konfigurasi extends CI_Controller
 		
 		
 			$data = [
-				'title' => 'Data konfigurasi',
+				'title' => 'Data Konfigurasi Icon Website',
 				'page' => 'admin/konfigurasi/uploadicon',
 				'subtitle' => 'konfigurasi',
 				'subtitle2' => 'Index',
@@ -223,7 +220,7 @@ class Konfigurasi extends CI_Controller
 							// Disimpan nama file gambar
 							'icon'				=> $upload_gambar['upload_data']['file_name'],
 						);
-			$this->konfigurasi ->edit($data);
+			$this->konfigurasi->edit($data);
 			$this->session->set_flashdata('message', 'swal("Berhasil!", "Data Icon Berhasil Diedit!", "success");');
 			redirect(base_url('backend/konfigurasi/uploadicon'), 'refresh');
 			}
@@ -231,19 +228,19 @@ class Konfigurasi extends CI_Controller
 			// Edit produk tanpa ganti gambar
 			$i = $this->input;
 			
-			$data = array(	'id_konfigurasi'	=> $konfigurasi->id_konfigurasi,
+			$data = array('id_konfigurasi'	=> $konfigurasi->id_konfigurasi,
 							'namaweb'			=> $i->post('namaweb'),
 							// Disimpan nama file gambar
 							//'logo'			=> $upload_gambar['upload_data']['file_name']
 						);
-			$this->konfigurasi ->edit($data);
+			$this->konfigurasi->edit($data);
 			$this->session->set_flashdata('message', 'swal("Berhasil!", "Data Konfigurasi Berhasil Diedit!", "success");');
 			redirect(base_url('backend/konfigurasi/uploadlogo'), 'refresh');
 		}}
 		// End masuk database
 		
 			$data = [
-				'title' => 'Data konfigurasi',
+				'title' => 'Data Konfigurasi Icon Website',
 				'page' => 'admin/konfigurasi/uploadicon',
 				'subtitle' => 'konfigurasi',
 				'subtitle2' => 'Index',

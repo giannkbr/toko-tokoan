@@ -13,14 +13,14 @@ $nav_produk_footer 	= $this->Modelkonfigurasi->nav_produk();
 
 				<div class="col-sm-6 col-lg-4 p-b-50">
 					<h4 class="stext-301 cl0 p-b-30">
-						MERK
+						KATEGORI
 					</h4>
 
 					<ul>
 						<?php foreach ($nav_produk_footer as $nav_produk_footer) { ?>
 						<li class="p-b-10">
-							<a href="<?php echo base_url('produk/merk/'.$nav_produk_footer->slug_merk) ?>" class="stext-107 cl7 hov-cl1 trans-04">
-							<?php echo $nav_produk_footer->nama_merk ?></a>
+							<a href="<?php echo base_url('produk/kategori/'.$nav_produk_footer->slug_kategori) ?>" class="stext-107 cl7 hov-cl1 trans-04">
+							<?php echo $nav_produk_footer->nama_kategori ?></a>
 						</li>
 						<?php } ?>
 					</ul>
