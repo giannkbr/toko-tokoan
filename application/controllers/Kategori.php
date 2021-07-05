@@ -1,33 +1,33 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Merk extends CI_Controller {
+class Kategori extends CI_Controller {
 
 	// Load model
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->model('Modelproduk');
-		$this->load->model('Modelmerk');
+		$this->load->model('Modelkategori');
 		$this->load->model('Modelkonfigurasi');
 	}
 
 	public function index()
 	{
 		$site 			= $this->Modelkonfigurasi->listing();
-		// Ambil Data merk (kotak merk)
-		$list_merk 	= $this->Modelmerk->listing();
+		// Ambil Data kategori (kotak kategori)
+		$list_kategori 	= $this->Modelkategori->listing();
 		
 
-		$data = array(	'title' 			=> 'Merk',
+		$data = array(	'title' 			=> 'kategori',
 						'site'				=> $site,
-						'list_merk'		=> $list_merk,
-		 				'page'				=> 'user/merk/list',
+						'list_kategori'		=> $list_kategori,
+		 				'page'				=> 'user/kategori/list',
 		 			);
 		$this->load->view('user/layout/wrapper', $data, FALSE);
 	}
 
 }
 
-/* End of file merk.php */
-/* Location: ./application/controllers/merk.php */
+/* End of file kategori.php */
+/* Location: ./application/controllers/kategori.php */

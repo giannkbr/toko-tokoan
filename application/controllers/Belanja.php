@@ -8,7 +8,7 @@ class Belanja extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Modelproduk');
-		$this->load->model('Modelmerk');
+		$this->load->model('Modelkategori');
 		$this->load->model('Modelkonfigurasi');
 		$this->load->model('Modelpelanggan');
 		$this->load->model('Modeldetailtransaksi');

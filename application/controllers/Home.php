@@ -102,6 +102,23 @@ class Home extends CI_Controller {
 
 		$this->load->view('user/layout/wrapper', $data, FALSE);
 	}
+
+	public function katalog(){
+		$site = $this->Modelkonfigurasi->listing();
+		$produk = $this->Modelproduk->home();
+			$data = array(	'title'		=> $site->namaweb.' | '.$site->tagline, 
+						'keywords' 	=> $site->keywords,
+						'deskripsi' => $site->deskripsi,
+						'site'		=> $site,
+						'produk'	=> $produk,
+						// 'keranjang'	=> $keranjang,
+						'page' 		=> 'user/home/katalog'
+					);
+
+		$this->load->view('user/layout/wrapper', $data, FALSE);
+	}
+
+
 }
 
 /* End of file Home.php */

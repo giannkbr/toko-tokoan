@@ -13,12 +13,12 @@
 								
 							<div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
 								<h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">
-								 Murah, Meriah.
+								 Toko Online <br> Pembersih Material Kulit
 								</h2>
 							</div>
 								
 							<div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
-								<a href="<?php echo base_url('kategori') ?>" class="btn btn-primary">
+								<a href="<?php echo base_url('Home/katalog') ?>" class="btn btn-primary">
 									Belanja Sekarang
 								</a>
 							</div>

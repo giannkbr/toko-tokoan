@@ -9,7 +9,7 @@ class Masuk extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Modelpelanggan');
 		$this->load->model('Modelproduk');
-		$this->load->model('Modelmerk');
+		$this->load->model('Modelkategori');
 		$this->load->model('Modelkonfigurasi');
 	}
 

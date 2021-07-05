@@ -8,7 +8,7 @@ class Produk extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Modelproduk');
-		$this->load->model('Modelmerk');
+		$this->load->model('Modelkategori');
 		$this->load->model('Modelkonfigurasi');
 
 	}
@@ -17,7 +17,7 @@ class Produk extends CI_Controller {
 	public function index()
 	{
 		$site 				= $this->Modelkonfigurasi->listing();
-		$listing_merk 	= $this->Modelproduk->listing_merk();
+		$listing_kategori 	= $this->Modelproduk->listing_kategori();
 		// Ambil data total
 		$total 				= $this->Modelproduk->total_produk();
 		// Pagination Start
@@ -54,7 +54,7 @@ class Produk extends CI_Controller {
 
 		$data = array(	'title' 			=> 'Produk '.$site->namaweb,
 						'site'				=> $site,
-						'listing_merk'	=> $listing_merk,
+						'listing_kategori'	=> $listing_kategori,
 						'produk'			=> $produk,
 						'pagin'				=> $this->pagination->create_links(),
 		 				'page'				=> 'user/produk/list',
@@ -62,20 +62,20 @@ class Produk extends CI_Controller {
 		$this->load->view('user/layout/wrapper', $data, FALSE);
 	}
 
-	// Listing data merk produk
-	public function merk($slug_merk)
+	// Listing data kategori produk
+	public function kategori($slug_kategori)
 	{
-		// merk detail
-		$merk 			= $this->Modelmerk->read($slug_merk);
-		$id_merk		= $merk->id_merk;
+		// kategori detail
+		$kategori 			= $this->Modelkategori->read($slug_kategori);
+		$id_kategori		= $kategori->id_kategori;
 		$site 				= $this->Modelkonfigurasi->listing();
-		$listing_merk 	= $this->Modelproduk->listing_merk();
+		$listing_kategori 	= $this->Modelproduk->listing_kategori();
 		// Ambil data total
-		$total 				= $this->Modelproduk->total_merk($id_merk);
+		$total 				= $this->Modelproduk->total_kategori($id_kategori);
 		// Pagination Start
 		$this->load->library('pagination');
 		
-		$config['base_url'] 		= base_url().'produk/merk/'.$slug_merk.'/index/';
+		$config['base_url'] 		= base_url().'produk/kategori/'.$slug_kategori.'/index/';
 		$config['total_rows'] 		= $total->total;
 		$config['use_page_numbers']	= TRUE;
 		$config['per_page'] 		= 12;
@@ -97,16 +97,16 @@ class Produk extends CI_Controller {
 		$config['prev_tag_close'] 	= '</div>';
 		$config['cur_tag_open'] 	= '<b>';
 		$config['cur_tag_close'] 	= '</b>';
-		$config['first_url']		= base_url().'/produk/merk/'.$slug_merk;		
+		$config['first_url']		= base_url().'/produk/kategori/'.$slug_kategori;		
 		$this->pagination->initialize($config);
 		// Ambil data produk
 		$page 	= ($this->uri->segment(5)) ? ($this->uri->segment(5)-1) * $config['per_page']:0;
-		$produk = $this->Modelproduk->merk($id_merk, $config['per_page'], $page);
+		$produk = $this->Modelproduk->kategori($id_kategori, $config['per_page'], $page);
 		// Paginasi end
 
-		$data = array(	'title' 			=> $merk->nama_merk,
+		$data = array(	'title' 			=> $kategori->nama_kategori,
 						'site'				=> $site,
-						'listing_merk'	=> $listing_merk,
+						'listing_kategori'	=> $listing_kategori,
 						'produk'			=> $produk,
 						'pagin'				=> $this->pagination->create_links(),
 		 				'page'				=> 'user/produk/list',

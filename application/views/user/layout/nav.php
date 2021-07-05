@@ -22,6 +22,11 @@ $nav_header_belum	= $this->Modelkonfigurasi->nav_header_belum($this->session->us
 								<a href="<?php echo base_url() ?>">Beranda</a>
 							</li>
 
+							
+							<li ><!-- class="active-menu" -->
+								<a href="<?php echo base_url('home/katalog') ?>">Katalog</a>
+							</li>	
+
 							<!-- Menu Produk -->
 							<li>
 								<a href="<?php echo base_url('kategori') ?>">Kategori</a>
@@ -37,6 +42,7 @@ $nav_header_belum	= $this->Modelkonfigurasi->nav_header_belum($this->session->us
 							<li ><!-- class="active-menu" -->
 								<a href="<?php echo base_url('home/kontak') ?>">Kontak</a>
 							</li>	
+
 
 							<!-- Menu Hot -->
 							<!-- <li class="label1" data-label1="hot">
