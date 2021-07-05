@@ -38,6 +38,70 @@ class Home extends CI_Controller {
 		$this->load->view('user/layout/wrapper', $data, FALSE);
 	}
 
+	public function tatacara(){
+		$site = $this->Modelkonfigurasi->listing();
+			$data = array(	'title'		=> $site->namaweb.' | '.$site->tagline, 
+						'keywords' 	=> $site->keywords,
+						'deskripsi' => $site->deskripsi,
+						'site'		=> $site,
+						// 'keranjang'	=> $keranjang,
+						'page' 		=> 'user/home/tatacara'
+					);
+
+		$this->load->view('user/layout/wrapper', $data, FALSE);
+	}
+
+	public function bayar(){
+		$site = $this->Modelkonfigurasi->listing();
+			$data = array(	'title'		=> $site->namaweb.' | '.$site->tagline, 
+						'keywords' 	=> $site->keywords,
+						'deskripsi' => $site->deskripsi,
+						'site'		=> $site,
+						// 'keranjang'	=> $keranjang,
+						'page' 		=> 'user/home/bayar'
+					);
+
+		$this->load->view('user/layout/wrapper', $data, FALSE);
+	}
+
+	public function syarat(){
+		$site = $this->Modelkonfigurasi->listing();
+			$data = array(	'title'		=> $site->namaweb.' | '.$site->tagline, 
+						'keywords' 	=> $site->keywords,
+						'deskripsi' => $site->deskripsi,
+						'site'		=> $site,
+						// 'keranjang'	=> $keranjang,
+						'page' 		=> 'user/home/syarat'
+					);
+
+		$this->load->view('user/layout/wrapper', $data, FALSE);
+	}
+
+	public function kebijakan(){
+		$site = $this->Modelkonfigurasi->listing();
+			$data = array(	'title'		=> $site->namaweb.' | '.$site->tagline, 
+						'keywords' 	=> $site->keywords,
+						'deskripsi' => $site->deskripsi,
+						'site'		=> $site,
+						// 'keranjang'	=> $keranjang,
+						'page' 		=> 'user/home/kebijakan'
+					);
+
+		$this->load->view('user/layout/wrapper', $data, FALSE);
+	}
+
+	public function kontak(){
+		$site = $this->Modelkonfigurasi->listing();
+			$data = array(	'title'		=> $site->namaweb.' | '.$site->tagline, 
+						'keywords' 	=> $site->keywords,
+						'deskripsi' => $site->deskripsi,
+						'site'		=> $site,
+						// 'keranjang'	=> $keranjang,
+						'page' 		=> 'user/home/kontak'
+					);
+
+		$this->load->view('user/layout/wrapper', $data, FALSE);
+	}
 }
 
 /* End of file Home.php */

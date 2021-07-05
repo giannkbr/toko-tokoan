@@ -7,8 +7,23 @@ $nav_produk_footer 	= $this->Modelkonfigurasi->nav_produk();
 	<footer class="bg3 p-t-75 p-b-32">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-6 col-lg-3 p-b-50">
-					
+				<div class="col-sm-6 col-lg-4 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						BANTUAN
+					</h4>
+
+					<ul>
+						<a href="<?php echo base_url('home/tatacara') ?>" class="cl7 hov-cl1 trans-04">Cara Berbelanja</a>
+					</ul>
+					<ul>
+						<a href="<?php echo base_url('home/bayar') ?>" class="cl7 hov-cl1 trans-04">Cara Pembayaran</a>
+					</ul>
+					<ul>
+						<a href="<?php echo base_url('home/syarat') ?>" class="cl7 hov-cl1 trans-04">Syarat dan Ketentuan</a>
+					</ul>
+					<ul>
+						<a href="<?php echo base_url('home/kebijakan') ?>" class="cl7 hov-cl1 trans-04">Kebijakan Privasi</a>
+					</ul>
 				</div>
 
 				<div class="col-sm-6 col-lg-4 p-b-50">

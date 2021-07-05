@@ -35,7 +35,7 @@ $nav_header_belum	= $this->Modelkonfigurasi->nav_header_belum($this->session->us
 
 							<!-- Menu Kontak -->
 							<li ><!-- class="active-menu" -->
-								<a href="<?php echo base_url('kontak') ?>">Kontak</a>
+								<a href="<?php echo base_url('home/kontak') ?>">Kontak</a>
 							</li>	
 
 							<!-- Menu Hot -->
