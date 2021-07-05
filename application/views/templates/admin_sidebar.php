@@ -14,7 +14,7 @@
 						<ul class="submenu megamenu">
 							<li>
 								<ul>
-									<a href="<?php echo base_url('backend/merk') ?>"> Data Merk Produk</a>
+									<a href="<?php echo base_url('backend/kategori') ?>"> Data Kategori Produk</a>
 									<a href="<?php echo base_url('backend/produk') ?>"> Data Produk</a>
 								</ul>
 							</li>

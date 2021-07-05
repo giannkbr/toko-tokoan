@@ -19,18 +19,18 @@
 					</thead>
 					<tbody>
 						<?php $no = 1;
-						foreach ($merk as $merk) { ?>
+						foreach ($kategori as $kategori) { ?>
 							<tr>
 								<td><?php echo $no ?></td>
 								<td>
-									<img src="<?php echo base_url('assets/upload/merk/image/thumbs/' . $merk->gambar) ?>" class="img img-responsive img-thumbnail" width="60">
+									<img src="<?php echo base_url('assets/upload/merk/image/thumbs/' . $kategori->gambar) ?>" class="img img-responsive img-thumbnail" width="60">
 								</td>
-								<td><?php echo $merk->nama_merk ?></td>
-								<td><?php echo $merk->slug_merk ?></td>
-								<td><?php echo $merk->urutan ?></td>
+								<td><?php echo $kategori->nama_kategori ?></td>
+								<td><?php echo $kategori->slug_kategori ?></td>
+								<td><?php echo $kategori->urutan ?></td>
 								<td>
-									<a href="<?php echo base_url('backend/merk/edit/' . $merk->id_merk) ?>" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> Edit</a>
-									<a href="<?php echo base_url('backend/merk/delete/' . $merk->id_merk) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Hapus Data?')"><i class="fa fa-trash"></i> Hapus</a>
+									<a href="<?php echo base_url('backend/kategori/edit/' . $kategori->id_kategori) ?>" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i> Edit</a>
+									<a href="<?php echo base_url('backend/kategori/delete/' . $kategori->id_kategori) ?>" class="btn btn-danger btn-xs" onclick="return confirm('Hapus Data?')"><i class="fa fa-trash"></i> Hapus</a>
 								</td>
 							</tr>
 						<?php $no++;
