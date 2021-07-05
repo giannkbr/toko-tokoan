@@ -174,7 +174,7 @@ if ($detail_transaksi) { ?>
 <h4 class="mtext-109 cl2">
 	Menu Invoice
 </h4><br>
-<a href="<?php echo base_url('backend/transaksi/cetak/'.$detail_transaksi->kode_transaksi) ?>" target="_blank" class=""><i class="fa fa-file-pdf-o"></i> Cetak Invoice</a>
+<a href="<?php echo base_url('Dasbor/cetak/'.$detail_transaksi->kode_transaksi) ?>" target="_blank" class=""><i class="fa fa-file-pdf-o"></i> Cetak Invoice</a>
 </div>
 <!-- END MENU CETAK -->
 

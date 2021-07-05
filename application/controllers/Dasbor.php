@@ -69,6 +69,22 @@ class Dasbor extends CI_Controller {
 		$this->load->view('user/layout/wrapper', $data, FALSE);
 	}
 
+	// Cetak
+	public function cetak($kode_transaksi)
+	{
+		$detailtransaksi 	= $this->Modeldetailtransaksi->kode_transaksi($kode_transaksi);
+		$transaksi 			= $this->Modeltransaksi->kode_transaksi($kode_transaksi);
+		$site 				= $this->Modelkonfigurasi->listing();
+
+		$data = array(
+			'title' 			=> 'Detail Transaksi',
+			'detailtransaksi'	=> $detailtransaksi,
+			'transaksi'			=> $transaksi,
+			'site'				=> $site
+		);
+		$this->load->view('admin/transaksi/cetak', $data, FALSE);
+	}
+
 	// Profil
 	public function profil()
 	{
