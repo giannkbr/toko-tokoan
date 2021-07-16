@@ -53,17 +53,17 @@ class Dasbor extends CI_Controller {
 		$detail_transaksi 	= $this->Modeldetailtransaksi->kode_transaksi($kode_transaksi);
 		$transaksi 			= $this->Modeltransaksi->kode_transaksi($kode_transaksi);
 		$rekening 			= $this->Modelrekening->listing();
-
 		// Pastikan bahwa pelanggan hanya mengakses data transaksinya
 		if($detail_transaksi->id_pelanggan != $id_pelanggan) {
 			$this->session->set_flashdata('warning', 'Anda mencoba mengakses data transaksi orang lain');
 			redirect(base_url('masuk'));
 		}
-
+		$total_harga = $detail_transaksi->ongkir + $detail_transaksi->jumlah_transaksi;
 		$data = array(	'title' 			=> 'Invoice', 
 						'detail_transaksi'	=> $detail_transaksi,
 						'transaksi'			=> $transaksi,
 						'rekening'			=> $rekening,
+						'total_harga'		=> $total_harga,
 						'page'				=> 'user/dasbor/detail'
 					);
 		$this->load->view('user/layout/wrapper', $data, FALSE);
@@ -145,9 +145,10 @@ class Dasbor extends CI_Controller {
 	// Konfirmasi pembayaran
 	public function konfirmasi($kode_transaksi)
 	{
-		$detail_transaksi	= $this->Modeldetailtransaksi->kode_transaksi($kode_transaksi);
+		// $id_pelanggan 		= $this->session->userdata('id_pelanggan');
+		$detail_transaksi 	= $this->Modeldetailtransaksi->kode_transaksi($kode_transaksi);
 		$rekening 			= $this->Modelrekening->listing();
-
+		$total_harga = $detail_transaksi->ongkir + $detail_transaksi->jumlah_transaksi;
 		// Validasi input
 		$valid = $this->form_validation;
 		
@@ -179,77 +180,86 @@ class Dasbor extends CI_Controller {
 			$this->load->library('upload', $config);
 			
 			if ( ! $this->upload->do_upload('bukti_bayar')){	
-		// End validasi
-
-		$data = array(	'title' 			=> 	'Konfirmasi Pembayaran',
-		  				'detail_transaksi'	=>	$detail_transaksi,
-		  				'rekening'			=>	$rekening,
-						'error'				=>	$this->upload->display_errors(),
-		  				'page'				=>	'dasbor/konfirmasi'
-		  			);
-		$this->load->view('user/layout/wrapper', $data, FALSE);
-
-		// Masuk database
-		}else{
-			$upload_gambar = array('upload_data' => $this->upload->data());
-
-			// Create Thumbnail Gambar
-			$config['image_library']	= 'gd2';
-			$config['source_image']		= './assets/upload/image/'.$upload_gambar['upload_data']['file_name'];
-			// Lokasi folder thumbnail
-			$config['new_image']		= './assets/upload/image/thumbs/';
-
-			$config['create_thumb']		= TRUE;
-			$config['maintain_ratio']	= TRUE;
-			$config['width']			= 250; // Pixel
-			$config['height']      		= 250; //Pixel
-			$config['thumb_marker']		= '';
-
-			$this->load->library('image_lib', $config);
-
-			$this->image_lib->resize();
-			// End Thumnail Gambar
-
-			$i = $this->input;
-
-			$data = array(	'id_detail_transaksi'	=> $detail_transaksi->id_detail_transaksi,
-							'status_bayar'			=> 'Menunggu Konfirmasi',
-							'jumlah_bayar'			=> $i->post('jumlah_bayar'),
-							'rekening_pembayaran'	=> $i->post('rekening_pembayaran'),
-							'rekening_pelanggan'	=> $i->post('rekening_pelanggan'),
-							'bukti_bayar'			=> $upload_gambar['upload_data']['file_name'],
-							'id_rekening'			=> $i->post('id_rekening'),
-							'tanggal_bayar'			=> $i->post('tanggal_bayar'),
-							'nama_bank'				=> $i->post('nama_bank'),
+			// End validasi
+		
+			$data = array(	'title' 			=> 	'Konfirmasi Pembayaran',
+							'detail_transaksi'	=>	$detail_transaksi,
+							'rekening'			=>	$rekening,
+							// 'total_harga'		=> $total_harga,
+							'error'				=>	$this->upload->display_errors(),
+							'page'				=>	'dasbor/konfirmasi'
 						);
-			$this->Modeldetailtransaksi->edit($data);
-			$this->session->set_flashdata('sukses','Konfirmasi Pembayaran Berhasil');
-			redirect(base_url('dasbor/belanja'),'refresh');
+			$this->load->view('user/layout/wrapper', $data, FALSE);
+
+			// Masuk database
+			}else{
+				$upload_gambar = array('upload_data' => $this->upload->data());
+				// $total_harga = $detail_transaksi->ongkir + $detail_transaksi->jumlah_transaksi;
+				// Create Thumbnail Gambar
+				$config['image_library']	= 'gd2';
+				$config['source_image']		= './assets/upload/image/'.$upload_gambar['upload_data']['file_name'];
+				// Lokasi folder thumbnail
+				$config['new_image']		= './assets/upload/image/thumbs/';
+
+				$config['create_thumb']		= TRUE;
+				$config['maintain_ratio']	= TRUE;
+				$config['width']			= 250; // Pixel
+				$config['height']      		= 250; //Pixel
+				$config['thumb_marker']		= '';
+
+				$this->load->library('image_lib', $config);
+
+				$this->image_lib->resize();
+				// End Thumnail Gambar
+
+				$i = $this->input;
+
+				$data = array(	'id_detail_transaksi'	=> $detail_transaksi->id_detail_transaksi,
+								'status_bayar'			=> 'Menunggu Konfirmasi',
+								'jumlah_bayar'			=>  $i->post('jumlah_bayar'),
+								'rekening_pembayaran'	=> $i->post('rekening_pembayaran'),
+								'rekening_pelanggan'	=> $i->post('rekening_pelanggan'),
+								'bukti_bayar'			=> $upload_gambar['upload_data']['file_name'],
+								'id_rekening'			=> $i->post('id_rekening'),
+								'tanggal_bayar'			=> $i->post('tanggal_bayar'),
+								'nama_bank'				=> $i->post('nama_bank'),
+							);
+				var_dump($data);
+				exit;
+				$this->Modeldetailtransaksi->edit($data);
+				$this->session->set_flashdata('sukses','Konfirmasi Pembayaran Berhasil');
+				redirect(base_url('dasbor/belanja'),'refresh');
+				}
+			}else{
+				// Edit produk tanpa ganti gambar
+				$i = $this->input;
+				// $total_harga = $detail_transaksi->ongkir + $detail_transaksi->jumlah_transaksi;
+				$data = array(	'id_detail_transaksi'	=> $detail_transaksi->id_detail_transaksi,
+								'status_bayar'			=> 'Menunggu Konfirmasi',
+								'jumlah_bayar'			=> $i->post('jumlah_bayar'),
+								'rekening_pembayaran'	=> $i->post('rekening_pembayaran'),
+								'rekening_pelanggan'	=> $i->post('rekening_pelanggan'),
+								// 'bukti_bayar'	=> $upload_gambar['upload_data']['file_name'],
+								'id_rekening'			=> $i->post('id_rekening'),
+								'tanggal_bayar'			=> $i->post('tanggal_bayar'),
+								'nama_bank'				=> $i->post('nama_bank'),
+							);
+				// var_dump($data);
+				// exit;
+				$this->Modeldetailtransaksi->edit($data);
+				$this->session->set_flashdata('sukses','Konfirmasi Pembayaran Berhasil');
+				redirect(base_url('dasbor/belanja'),'refresh');
 			}
-		}else{
-			// Edit produk tanpa ganti gambar
-			$i = $this->input;
-
-			$data = array(	'id_detail_transaksi'	=> $detail_transaksi->id_detail_transaksi,
-							'status_bayar'			=> 'Menunggu Konfirmasi',
-							'jumlah_bayar'			=> $i->post('jumlah_bayar'),
-							'rekening_pembayaran'	=> $i->post('rekening_pembayaran'),
-							'rekening_pelanggan'	=> $i->post('rekening_pelanggan'),
-							// 'bukti_bayar'	=> $upload_gambar['upload_data']['file_name'],
-							'id_rekening'			=> $i->post('id_rekening'),
-							'tanggal_bayar'			=> $i->post('tanggal_bayar'),
-							'nama_bank'				=> $i->post('nama_bank'),
-						);
-			$this->Modeldetailtransaksi->edit($data);
-			$this->session->set_flashdata('sukses','Konfirmasi Pembayaran Berhasil');
-			redirect(base_url('dasbor/belanja'),'refresh');
-		}}
+	}
 		// End masuk database
 		$data = array(	'title' 			=> 	'Konfirmasi Pembayaran',
 		  				'detail_transaksi'	=>	$detail_transaksi,
 		  				'rekening'			=>	$rekening,
-		  				'page'				=>	'user/dasbor/konfirmasi'
+		  				'page'				=>	'user/dasbor/konfirmasi',
+						'total_harga'		=> $total_harga,
 		  			);
+				// 	  var_dump($data);
+				// exit;
 		$this->load->view('user/layout/wrapper', $data, FALSE);
 	}
 

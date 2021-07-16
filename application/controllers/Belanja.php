@@ -56,7 +56,7 @@ class Belanja extends CI_Controller {
 		if ($this->session->userdata('email')) {
 			$email 			= $this->session->userdata('email');
 			$pelanggan 		= $this->Modelpelanggan->sudah_login($email);
-
+			
 			$keranjang 	= $this->cart->contents();
 
 			// Validasi input
@@ -88,6 +88,12 @@ class Belanja extends CI_Controller {
 			// Masuk database
 			}else{
 				$i = $this->input;
+				$ongkir = $this->input->post('ongkir');
+				if ($ongkir = '1') {
+					$totalongkir = 6000;
+				}else{
+					$totalongkir = 4000;
+				}
 				$data = array(	'id_pelanggan'		=> $pelanggan->id_pelanggan,
 								'nama_pelanggan'	=> $i->post('nama_pelanggan'),
 								'email'				=> $i->post('email'),
@@ -97,14 +103,15 @@ class Belanja extends CI_Controller {
 								'tanggal_transaksi'	=> $i->post('tanggal_transaksi'),
 								'jumlah_transaksi'	=> $i->post('jumlah_transaksi'),
 								'status_bayar'		=> 'Belum',
-								'tanggal_post'		=> date('Y-m-d H:i:s')
+								'tanggal_post'		=> date('Y-m-d H:i:s'),
+								'ongkir' => $totalongkir
 							);
 				// proses masuk ke header transaksi
 				$this->Modeldetailtransaksi->tambah($data);
 
 				// proses masuk ke tabel transaksi
 				foreach ($keranjang as $keranjang) {
-					$sub_total =  $keranjang['price'] * $keranjang['qty'];
+					$sub_total =  $keranjang['price'] * $keranjang['qty'] ;
 
 					$data = array(	'id_pelanggan' 		=> $pelanggan->id_pelanggan,
 					 				'kode_transaksi'	=> $i->post('kode_transaksi'),
@@ -112,7 +119,8 @@ class Belanja extends CI_Controller {
 					 				'harga'				=> $keranjang['price'],
 					 				'jumlah'			=> $keranjang['qty'],
 					 				'total_harga'		=> $sub_total,
-					 				'tanggal_transaksi'	=> $i->post('tanggal_transaksi')
+					 				'tanggal_transaksi'	=> $i->post('tanggal_transaksi'),
+									 
 					 			);
 					$this->Modeltransaksi->tambah($data);
 				}

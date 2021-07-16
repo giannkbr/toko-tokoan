@@ -39,7 +39,7 @@
 									</a>
 								</td>
 								<td><?php echo date('d-m-Y', strtotime($detailtransaksi->tanggal_transaksi)) ?></td>
-								<td><?php echo number_format($detailtransaksi->jumlah_transaksi) ?></td>
+								<td><?php echo number_format($detailtransaksi->jumlah_bayar) ?></td>
 								<td><?php echo $detailtransaksi->total_item ?></td>
 								<td><?php echo $detailtransaksi->status_bayar ?></td>
 								<td class="text-center">
