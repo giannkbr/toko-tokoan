@@ -23,7 +23,7 @@
 							<tr>
 								<td><?php echo $no ?></td>
 								<td>
-									<img src="<?php echo base_url('assets/upload/merk/image/thumbs/' . $kategori->gambar) ?>" class="img img-responsive img-thumbnail" width="60">
+									<img src="<?php echo base_url('assets/upload/kategori/image/thumbs/' . $kategori->gambar) ?>" class="img img-responsive img-thumbnail" width="60">
 								</td>
 								<td><?php echo $kategori->nama_kategori ?></td>
 								<td><?php echo $kategori->slug_kategori ?></td>
