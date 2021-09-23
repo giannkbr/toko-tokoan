@@ -29,8 +29,8 @@
 		<div class="row">
 			<div class="col-lg-10 col-xl-8 m-lr-auto m-t-50 text-center">
 				<div class="m-l-21 m-r--38 m-lr-0-xl" style="background-size: 100%">
-					<img src="<?php echo base_url() ?>assets/admin/dist/img/avatar.png"
-						style="border-radius: 50%; width: 100px" class="m-all-20" alt="User Image">
+					<!-- <img src="<?php echo base_url() ?>assets/upload/image/thumbs/"
+						style="border-radius: 50%; width: 100px" class="m-all-20" alt="User Image"> -->
 					<h5>
 						Selamat Datang <i><strong><?php echo $pelanggan->nama_pelanggan ; ?></strong></i>
 					</h5>

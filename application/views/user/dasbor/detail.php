@@ -73,11 +73,6 @@
 								<td>: <?php echo date('d-m-Y',strtotime($detail_transaksi->tanggal_transaksi)) ?></td>
 							</tr>
 							<tr>
-								<td>Jumlah Total</td>
-								<td>: Rp <?php echo number_format($detail_transaksi->jumlah_transaksi,0,',','.') ?>,-
-								</td>
-							</tr>
-							<tr>
 								<td>Status Bayar</td>
 								<td>: <?php echo $detail_transaksi->status_bayar ?></td>
 							</tr>

@@ -2,11 +2,11 @@
 	<div class="col-12">
 		<p class="pull-right">
 	<div class="btn-group pull-right">
-		<!-- <a href="<?php echo base_url('admin/transaksi/cetak/'.$detailtransaksi->kode_transaksi) ?>" target="_blank" title="Cetak" class="btn btn-success btn-sm"><i class="fa fa-print"></i> Cetak</a> -->
+		<!-- <a href="<?php echo base_url('backend/transaksi/cetak/'.$detailtransaksi->kode_transaksi) ?>" target="_blank" title="Cetak" class="btn btn-success btn-sm"><i class="fa fa-print"></i> Cetak</a> -->
 		<?php if($detailtransaksi->status_bayar == 'Konfirmasi') { ?>
-		<a href="<?php echo base_url('admin/transaksi/pdf/'.$detailtransaksi->kode_transaksi) ?>" title="Cetak" class="btn btn-success btn-sm"><i class="fa fa-print"></i> Cetak</a>
+		<a href="<?php echo base_url('backend/transaksi/cetak/'.$detailtransaksi->kode_transaksi) ?>" title="Cetak" class="btn btn-success btn-lg"><i class="fa fa-print"></i> Cetak</a>
 		<?php } ?>
-		<!-- <a href="<?php echo base_url('admin/transaksi') ?>" title="Kembali" class="btn btn-info btn-sm"><i class="fa fa-backward"></i> Kembali</a> -->
+		<!-- <a href="<?php echo base_url('backend/transaksi') ?>" title="Kembali" class="btn btn-info btn-sm"><i class="fa fa-backward"></i> Kembali</a> -->
 	</div>
 </p>
 <div class="clearfix"></div><hr>

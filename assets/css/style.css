@@ -43,14 +43,14 @@ TABLES OF CSS
 33. Extra pages
 34. Account pages
 */
-@import url("https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap");
 /* ==============
   General
 ===================*/
 body {
   background-repeat: repeat;
   background: #f9f9f9;
-  font-family: "Quicksand", sans-serif;
+  font-family: "Poppins", sans-serif;
 	font-weight : 400;
   color: #354558;
   font-size: 13px;
@@ -70,7 +70,7 @@ html {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 10px 0;
-  font-family: "Quicksand", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 h6 {
@@ -1017,7 +1017,7 @@ dt {
   margin-left: 45px;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-family: "Quicksand", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .notification-list .notify-item .notify-details span {
@@ -1027,7 +1027,7 @@ dt {
   white-space: normal;
   font-size: 12px;
   font-weight: normal;
-  font-family: "Quicksand", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .notification-list .language-switch a img {
@@ -1232,7 +1232,7 @@ body {
   background-color: #ffffff;
   right: 0;
   left: 0px;
-  font-family: "Quicksand", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .wrapper {
@@ -2430,7 +2430,7 @@ label {
 /* Morris chart */
 /* Morris chart */
 .morris-charts text {
-  font-family: "Quicksand", sans-serif !important;
+  font-family: "Poppins", sans-serif !important;
 }
 
 .morris-hover.morris-default-style {
