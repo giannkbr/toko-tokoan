@@ -33,7 +33,7 @@ $nav_header_belum	= $this->Modelkonfigurasi->nav_header_belum($this->session->us
 								<ul class="sub-menu">
 									<?php foreach ($nav_produk as $nav_produk) { ?>
 									<li><a href="<?php echo base_url('produk/kategori/'.$nav_produk->slug_kategori) ?>">
-										<?php echo $nav_produk->nama_kategori ?></a></li>
+										<?= $nav_produk->nama_kategori ?></a></li>
 									<?php } ?>
 								</ul>
 							</li>	

@@ -36,7 +36,7 @@ class Modelkonfigurasi extends CI_Model
 		$this->db->join('kategori', 'kategori.id_kategori = produk.id_kategori', 'left');
 		// END JOIN
 		$this->db->group_by('produk.id_kategori'); // Ngitung total gambar
-		$this->db->order_by('kategori.urutan', 'ASC');
+		$this->db->order_by('kategori.id_kategori', 'desc');
 		$query = $this->db->get();
 		return $query->result();
 	}
