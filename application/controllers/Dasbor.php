@@ -224,8 +224,8 @@ class Dasbor extends CI_Controller {
 								'tanggal_bayar'			=> $i->post('tanggal_bayar'),
 								'nama_bank'				=> $i->post('nama_bank'),
 							);
-				var_dump($data);
-				exit;
+				// var_dump($data);
+				// exit;
 				$this->Modeldetailtransaksi->edit($data);
 				$this->session->set_flashdata('sukses','Konfirmasi Pembayaran Berhasil');
 				redirect(base_url('dasbor/belanja'),'refresh');

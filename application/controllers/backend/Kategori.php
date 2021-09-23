@@ -100,7 +100,7 @@ class Kategori extends CI_Controller
 					'nama_kategori'		=> $i->post('nama_kategori'),
 					// Disimpan nama file gambar
 					'gambar'			=> $upload_gambar['upload_data']['file_name'],
-					'urutan'			=> $i->post('urutan')
+					// 'urutan'			=> $i->post('urutan')
 				);
 				$this->kategori->tambah($data);
 				$this->session->set_flashdata('sukses', 'Data telah ditambah');

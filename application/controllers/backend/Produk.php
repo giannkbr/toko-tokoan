@@ -30,8 +30,8 @@ class Produk extends CI_Controller
 	{
 		// Proses hapus gambar
 		$produk = $this->produk->detail($id_produk);
-		unlink('./assets/upload/image/' . $produk->gambar);
-		unlink('./assets/upload/image/thumbs/' . $produk->gambar);
+		unlink(FCPATH . 'assets/upload/image/' . $produk->gambar);
+		unlink(FCPATH . 'assets/upload/image/thumbs/' . $produk->gambar);
 
 		$data = array('id_produk'	=> $id_produk);
 		$this->produk->delete($data);
@@ -44,8 +44,8 @@ class Produk extends CI_Controller
 	{
 		// Proses hapus gambar
 		$gambar = $this->produk->detail_gambar($id_gambar);
-		unlink('./assets/upload/image/' . $gambar->gambar);
-		unlink('./assets/upload/image/thumbs/' . $gambar->gambar);
+		unlink(FCPATH . 'assets/upload/image/' . $gambar->gambar);
+		unlink(FCPATH . 'assets/upload/image/thumbs/' . $gambar->gambar);
 
 		$data = array('id_gambar'	=> $id_gambar);
 		$this->produk->delete_gambar($data);
